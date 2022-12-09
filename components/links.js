@@ -13,7 +13,6 @@ export default function LinkInputComponent() {
       }},
       "text",
     );
-
   }
 
   return (
