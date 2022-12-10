@@ -14,8 +14,8 @@ export default function TextComponent({text}) {
   })
 
   return (
-    <div>
-      <div>
+    <div class="border-4">
+      <div class="p-4">
         <p> {item} </p>
       </div>
     </div>
