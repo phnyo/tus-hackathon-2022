@@ -1,20 +1,47 @@
 import Link from 'next/link.js'
-import {useRouter} from 'next/router';
 import TextComponent from '../components/text';
 import highlightFetcher from './api/highlight';
 import Header from '../components/header';
 
 export default function Text(props) {
   
+  let flg = false;
+  
+  const changeBgColor = () => {
+    const mark = document.getElementsByTagName("mark");
+    console.log(mark)
+    if (flg === false) {
+      for (let i = 0; i < mark.length; i++) {
+        mark[i].setAttribute("style", "background: black;");
+      }
+      document.getElementsByClassName("blind")[0].innerText = "語句を戻す"
+      flg = true
+    } else {
+      for (let i = 0; i < mark.length; i++) {
+        mark[i].setAttribute("style", "background: linear-gradient(transparent 70%, rgba(50, 127, 255, 0.69) 50%");
+      }
+      document.getElementsByClassName("blind")[0].innerText = "語句を覆う"
+      flg = false
+    }
+  }
+
   return (
     <div class="text-xl py-8 xl:px-56 lg:px-40 md:px-32 sm:px-4 flex">
       <div class="md:w-1/5 sm:w-1/6">
       </div>
       <div class="md:w-3/5 sm:w-4/6 text-xl">
         <Header />
-        <TextComponent text={props}/>
-        <div class="center py-5 flex">
-          <Link href="/"> 戻る </Link>
+        <div>
+          <h1 class="text-3xl align-center py-8"> ハイライトされた文章 </h1>
+        </div>
+        <TextComponent text={props.text}/>
+        <div class="center py-5 grid">
+          <div class="col-span-2">
+            <Link href="/"> 戻る </Link>
+          </div>
+          <div class="col-span-3">
+            <button class="blind" onClick={changeBgColor}> 語句を覆う</button>
+          </div>
         </div>
       </div>
       <div class="md:w-1/5 sm:w-1/6">
