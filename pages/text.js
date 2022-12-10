@@ -4,6 +4,9 @@ import highlightFetcher from './api/highlight';
 import Header from '../components/header';
 
 export default function Text(props) {
+          <div class="col-span-2 px-4">
+            <Link href="/"> 戻る </Link>
+          </div>
   
   let flg = false;
   
@@ -26,21 +29,21 @@ export default function Text(props) {
   }
 
   return (
-    <div class="text-xl py-8 xl:px-56 lg:px-40 md:px-32 sm:px-4 flex">
+    <div class="text-xl py-6 xl:px-56 lg:px-40 md:px-32 sm:px-4 flex">
       <div class="md:w-1/5 sm:w-1/6">
       </div>
       <div class="md:w-3/5 sm:w-4/6 text-xl">
         <Header />
         <div>
-          <h1 class="text-3xl align-center py-8"> ハイライトされた文章 </h1>
+          <h1 class="text-3xl align-center py-4 px-4"> ハイライトされた文章 </h1>
         </div>
         <TextComponent text={props.text}/>
         <div class="center py-5 grid">
-          <div class="col-span-2">
-            <Link href="/"> 戻る </Link>
-          </div>
-          <div class="col-span-3">
+          <div class="col-span-3 py-2 px-4">
             <button class="blind" onClick={changeBgColor}> 語句を覆う</button>
+          </div>
+          <div class="col-span-2 px-4">
+            <Link href="/"> 戻る </Link>
           </div>
         </div>
       </div>
