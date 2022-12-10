@@ -10,6 +10,6 @@ export default async function highlightFetcher(text) {
       },
     }),
   })
-  const data = await res.json()
+  const data = await res.json()   
   return data
 }

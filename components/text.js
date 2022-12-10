@@ -1,8 +1,21 @@
 export default function TextComponent({text}) {
-  // ロジックを書く
+  if (text.length === 0 || text === []){
+    return <div><p> 何も入力されていません。</p></div>
+  }
+
+  const item = text['text'].map(function(value, index) {
+    if (index % 2 === 1) {
+      return <mark> {value} </mark>
+    } else {
+      return <span> {value} </span>
+    }
+  })
+
   return (
     <div>
-      <p>{ text }</p>
+      <div>
+        <p> {item} </p>
+      </div>
     </div>
   )
 }
