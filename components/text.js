@@ -5,9 +5,9 @@ export default function TextComponent({text}) {
 
   const item = text['text'].map(function(value, index) {
     if (index % 2 === 1) {
-      return <mark> {value} </mark>
+      return <mark key={index}> {value} </mark>
     } else {
-      return <span> {value} </span>
+      return <span key={index}> {value} </span>
     }
   })
 
